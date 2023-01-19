@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styleindex.css')}}">
+    <script src="{{url_for('static',filename='javascript/java.js')}}"></script>
+    <title>Covid Analysis</title>
+</head>
+<body>
+    <video id="background-video" autoplay loop muted>
+        <source src="{{url_for('static',filename='bgvideo.mp4')}}" type="video/mp4">
+    </video>
+
+    <h1>Covid-19 Risk Analysis</h1>
+    <div class="container">
+        <form method='POST' action="{{url_for('predict')}}">
+
+            <p>USMER<span title="Indicates whether the patient treated medical units of the first or second level.">&#9432; </span>:
+                <span><input type="button" name="xxx"  value="1"  id="btn1" onclick="fn('btn1','btn2','bt1','y')"><span>
+                <span><input type="button" name="xxx"  value="2" id="btn2" onclick="fn('btn2','btn1','bt1','n')"></span>
+            </p>
+
+            <p>PATIENT TYPE:
+                <span><input type="button" name="xxx"  value="Returned" id="btn3" onclick="fn('btn3','btn4','bt2','n')"></span>
+                <span><input type="button" name="xxx"  value="Hospitalized" id="btn4" onclick="fn('btn4','btn3','bt2','y')"> </span>
+            </p>
+
+            <p>PNEUMONIA:
+                <span><input type="button" name="xxx"  value="yes" id="btn5" onclick="fn('btn5','btn6','bt3','y')"></span>
+                <span><input type="button" name="xxx"  value="no" id="btn6" onclick="fn('btn6','btn5','bt3','n')"></span>
+            </p>
+
+            <p>AGE: 
+                <span><input type="number" name="age" step="any" placeholder="enter age" required min="1" max="120"> </span>
+            </p>
+            
+            <p>DIABETES: 
+                <span><input type="button" name="xxx"  value="yes" id="btn7" onclick="fn('btn7','btn8','bt4','y')"></span>
+                <span><input type="button" name="xxx"  value="no" id="btn8" onclick="fn('btn8','btn7','bt4','n')"></span>
+            </p>
+
+            <p>HYPERTENSION: 
+                <span><input type="button" name="xxx"  value="yes" id="btn9" onclick="fn('btn9','btn10','bt5','y')"></span>
+                <span><input type="button" name="xxx"  value="no" id="btn10" onclick="fn('btn10','btn9','bt5','n')"></span>
+            </p>
+
+            <p>RENAL CHRONIC: 
+                <span><input type="button" name="xxx"  value="yes" id="btn11" onclick="fn('btn11','btn12','bt6','y')"></span>
+                <span><input type="button" name="xxx"  value="no" id="btn12" onclick="fn('btn12','btn11','bt6','n')"></span>
+            </p>
+
+            <p>MEDICAL UNIT<span title="Type of institution of the National Health System that provided the care">&#9432; </span>:
+                <select name="medical_unit">
+                    <option selected="true" disabled>--select--</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                </select>
+           
+
+            <p>CLASSIFICATION<span title="Covid test findings. Values 1-3 mean that the patient was diagnosed with covid in different
+                degrees. 4 or higher means that the patient is not a carrier of covid or that the test is inconclusive">&#9432; </span>:
+                <select name="classification">
+                    <option selected="true" disabled>--select--</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </p>
+
+
+
+            <input type="hidden" name="usmr" id="bt1">
+            <input type="hidden" name="patient_type" id="bt2">
+            <input type="hidden" name="pneumonia" id="bt3">
+            <input type="hidden" name="diabetes" id="bt4">
+            <input type="hidden" name="hypertension" id="bt5">
+            <input type="hidden" name="renal_chronic" id="bt6">
+
+
+            <div class="submitButton">
+                <button >SUBMIT</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

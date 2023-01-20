@@ -6,7 +6,7 @@ model=pickle.load(open('model_final.pkl','rb'))
 
 app=Flask(__name__)
 
-@app.route('/predict' , methods=["POST"])
+@app.route('/predict' , methods=["POST","GET"])
 def predict():
     a=request.form.get('usmr')
     b=request.form.get('patient_type')
@@ -23,17 +23,13 @@ def predict():
     i=request.form['classification']
     input[17+ int(i)]=1
 
-    print(input)
-
     input=np.array(input,dtype=int)
     input=input.reshape(1,25)
     prediction=model.predict(input)
 
     if(prediction[0]==2):
-        # return render_template('die.html')
         ans="survive"
     else:
-        # return render_template('survive.html')
         ans=None
     
     return render_template('result.html',answer=ans)

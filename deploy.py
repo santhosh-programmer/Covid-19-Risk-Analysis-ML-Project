@@ -10,7 +10,7 @@ app=Flask(__name__)
 def predict():
     a=request.form.get('usmr')
     b=request.form.get('patient_type')
-    b=1 if b=='2' else 2
+    b=2 if b=='2' else 1
     c=request.form.get('pneumonia')
     d=request.form['age']
     e=request.form.get('diabetes')
@@ -24,6 +24,8 @@ def predict():
     input[17+ int(i)]=1
 
     input=np.array(input,dtype=int)
+
+    print(input)
     input=input.reshape(1,25)
     prediction=model.predict(input)
 

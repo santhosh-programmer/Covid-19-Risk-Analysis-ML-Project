@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit:fill;
+    position:fixed;
+    z-index: -1;
+}
+
+h1{
+    text-align: center;
+    padding-top: 40vh;
+    font-size: 5rem;
+}
+
+
+
+

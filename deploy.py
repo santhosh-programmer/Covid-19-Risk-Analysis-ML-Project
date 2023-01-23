@@ -10,7 +10,6 @@ app=Flask(__name__)
 def predict():
     a=request.form.get('usmr')
     b=request.form.get('patient_type')
-    b=2 if b=='2' else 1
     c=request.form.get('pneumonia')
     d=request.form['age']
     e=request.form.get('diabetes')
@@ -34,7 +33,7 @@ def predict():
     else:
         ans=None
     
-    return render_template('result.html',answer=ans)
+    return render_template('result1.html',answer=ans)
 
     
 
